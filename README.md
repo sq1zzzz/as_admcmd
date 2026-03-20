@@ -49,11 +49,11 @@ game/csgo/addons/counterstrikesharp/plugins/AdminESP/AdminESP.dll
 
 **2. Добавь переводы:**
 
-Открой `game/csgo/translations/admin_system.phrases.txt` и вставь содержимое файла `admin_system.phrases.txt` из архива перед последней закрывающей `}`.
+Открой `csgo/addons/translations/admin_system.phrases.txt` и вставь содержимое файла `admin_system.phrases.txt` из архива перед последней закрывающей `}`.
 
 **3. Добавь в sorting:**
 
-Открой `game/csgo/configs/admin_system/sorting.ini` и вставь содержимое файла `sorting.txt` из архива перед последней закрывающей `}`:
+Открой `csgo/addons/configs/admin_system/sorting.ini` и вставь содержимое файла `sorting.txt` из архива перед последней закрывающей `}`:
 
 ```
 	"admin_commands"
@@ -118,11 +118,11 @@ game/csgo/addons/counterstrikesharp/plugins/AdminESP/AdminESP.dll
 
 **2. Add translations:**
 
-Open `game/csgo/translations/admin_system.phrases.txt` and insert the contents of `admin_system.phrases.txt` from the archive before the last closing `}`.
+Open `csgo/addons/translations/admin_system.phrases.txt` and insert the contents of `admin_system.phrases.txt` from the archive before the last closing `}`.
 
 **3. Add to sorting:**
 
-Open `game/csgo/configs/admin_system/sorting.ini` and insert the contents of `sorting.txt` from the archive before the last closing `}`:
+Open `csgo/addons/configs/admin_system/sorting.ini` and insert the contents of `sorting.txt` from the archive before the last closing `}`:
 
 ```
 	"admin_commands"
