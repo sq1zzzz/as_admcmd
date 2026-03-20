@@ -143,4 +143,4 @@ Flag `@admin/admcmd` for required administrators.
 
 #Author:
 
-sq1z :)
+sq1z
