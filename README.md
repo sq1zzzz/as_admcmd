@@ -28,7 +28,7 @@
 
 `as_admcmd` - Metamod плагин.** Основная часть: меню, телепорт, деньги, оружие, сброс счёта, интеграция с AdminSystem.
 
-`AdminESP` - CounterStrikeSharp плагин.** Отдельный плагин только для ESP. Реализовать настоящий ВХ (glow через стены) так, чтобы видел только один конкретный админ, в Metamod невозможно. CounterStrikeSharp даёт доступ к `CheckTransmit` — механизму который контролирует что именно отправляется каждому клиенту. Именно через него подсветка показывается только тому у кого включён ESP, а остальные игроки её не видят.
+`AdminESP` - CounterStrikeSharp плагин.** Отдельный плагин только для ESP. Реализовать настоящий ВХ (glow через стены) так, чтобы видел только один конкретный админ, в Metamod невозможно. CounterStrikeSharp даёт доступ к `CheckTransmit` - механизму который контролирует что именно отправляется каждому клиенту. Именно через него подсветка показывается только тому у кого включён ESP, а остальные игроки её не видят.
 
 ### Требования
 
@@ -97,7 +97,7 @@ Adds a new category **"Admin Commands"** to the `!admin` menu.
 
 **`as_admcmd` - Metamod plugin.** The main part: menu, teleport, money, weapons, score reset, AdminSystem integration.
 
-**`AdminESP` - CounterStrikeSharp plugin.** A separate plugin for ESP only. It is not possible to implement a proper wallhack (player glow visible through walls) in Metamod in a way that only one specific admin sees it. CounterStrikeSharp provides access to `CheckTransmit` — a mechanism that controls exactly what is sent to each client. This is what makes the glow visible only to the admin with ESP enabled, while everyone else sees nothing.
+**`AdminESP` - CounterStrikeSharp plugin.** A separate plugin for ESP only. It is not possible to implement a proper wallhack (player glow visible through walls) in Metamod in a way that only one specific admin sees it. CounterStrikeSharp provides access to `CheckTransmit` - a mechanism that controls exactly what is sent to each client. This is what makes the glow visible only to the admin with ESP enabled, while everyone else sees nothing.
 
 ### Requirements
 
