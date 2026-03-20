@@ -1,0 +1,5 @@
+"Plugin"
+{
+	"alias"		"as_admcmd"
+	"file"		"addons/admin_modules/as_admcmd"
+}
