@@ -49,7 +49,190 @@ game/csgo/addons/counterstrikesharp/plugins/AdminESP/AdminESP.dll
 
 **2. Добавь переводы:**
 
-Открой `csgo/addons/translations/admin_system.phrases.txt` и вставь содержимое файла `admin_system.phrases.txt` из архива перед последней закрывающей `}`.
+Открой `csgo/addons/translations/admin_system.phrases.txt` и вставь содержимое файла `admin_system.phrases.txt` из архива перед последней закрывающей `}`:
+
+```
+	"Category_AdminCommands"
+	{
+		"ru"	"Управление командами"
+		"ua"	"Управління командами"
+		"en"	"Admin Commands"
+	}
+	"Item_RespawnPlayer"
+	{
+		"ru"	"Возродить игрока"
+		"ua"	"Відродити гравця"
+		"en"	"Respawn Player"
+	}
+	"Item_TeleportPlayer"
+	{
+		"ru"	"Телепортировать игрока"
+		"ua"	"Телепортувати гравця"
+		"en"	"Teleport Player"
+	}
+	"Item_GiveMoney"
+	{
+		"ru"	"Выдать деньги"
+		"ua"	"Видати гроші"
+		"en"	"Give Money"
+	}
+	"Item_TakeMoney"
+	{
+		"ru"	"Отнять деньги"
+		"ua"	"Відняти гроші"
+		"en"	"Take Money"
+	}
+	"Item_InfAmmo"
+	{
+		"ru"	"Бесконечные патроны"
+		"ua"	"Безкінечні патрони"
+		"en"	"Infinite Ammo"
+	}
+	"Item_GiveWeapon"
+	{
+		"ru"	"Выдать оружие"
+		"ua"	"Видати зброю"
+		"en"	"Give Weapon"
+	}
+	"Item_ResetScore"
+	{
+		"ru"	"Сбросить счёт"
+		"ua"	"Скинути рахунок"
+		"en"	"Reset Score"
+	}
+	"Status_On"
+	{
+		"ru"	"ВКЛ"
+		"ua"	"УВІМК"
+		"en"	"ON"
+	}
+	"Status_Off"
+	{
+		"ru"	"ВЫКЛ"
+		"ua"	"ВИМК"
+		"en"	"OFF"
+	}
+	"InfAmmo_Enabled"
+	{
+		"ru"	" {GREEN}[AS] {WHITE}Бесконечные патроны {GREEN}ON"
+		"ua"	" {GREEN}[AS] {WHITE}Безкінечні патрони {GREEN}ON"
+		"en"	" {GREEN}[AS] {WHITE}Infinite ammo {GREEN}ON"
+	}
+	"InfAmmo_Disabled"
+	{
+		"ru"	" {GREEN}[AS] {WHITE}Бесконечные патроны {RED}OFF"
+		"ua"	" {GREEN}[AS] {WHITE}Безкінечні патрони {RED}OFF"
+		"en"	" {GREEN}[AS] {WHITE}Infinite ammo {RED}OFF"
+	}
+	"Teleport_SelectTarget"
+	{
+		"ru"	"Кого телепортировать?"
+		"ua"	"Кого телепортувати?"
+		"en"	"Who to teleport?"
+	}
+	"Teleport_SelectDest"
+	{
+		"ru"	"К кому телепортировать"
+		"ua"	"До кого телепортувати"
+		"en"	"Teleport to"
+	}
+	"Money_SelectAmount"
+	{
+		"ru"	"Выберите сумму"
+		"ua"	"Оберіть суму"
+		"en"	"Select Amount"
+	}
+	"Weapon_SelectWeapon"
+	{
+		"ru"	"Выберите оружие"
+		"ua"	"Оберіть зброю"
+		"en"	"Select Weapon"
+	}
+	"AdminRespawnMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} возродил игрока {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} відродив гравця {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} respawned player {LIGHTRED}%s{DEFAULT}"
+	}
+	"RespawnMessage"
+	{
+		"ru"	"Администратор возродил игрока {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор відродив гравця {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin respawned player {LIGHTRED}%s{DEFAULT}"
+	}
+	"AdminTeleportMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} телепортировал {LIGHTRED}%s{DEFAULT} к {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} телепортував {LIGHTRED}%s{DEFAULT} до {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} teleported {LIGHTRED}%s{DEFAULT} to {LIGHTRED}%s{DEFAULT}"
+	}
+	"TeleportMessage"
+	{
+		"ru"	"Администратор телепортировал {LIGHTRED}%s{DEFAULT} к {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор телепортував {LIGHTRED}%s{DEFAULT} до {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin teleported {LIGHTRED}%s{DEFAULT} to {LIGHTRED}%s{DEFAULT}"
+	}
+	"AdminGiveMoneyMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} выдал {LIGHTRED}%s{DEFAULT} деньги: {LIGHTRED}$%i{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} видав {LIGHTRED}%s{DEFAULT} гроші: {LIGHTRED}$%i{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} gave {LIGHTRED}%s{DEFAULT} money: {LIGHTRED}$%i{DEFAULT}"
+	}
+	"GiveMoneyMessage"
+	{
+		"ru"	"Администратор выдал {LIGHTRED}%s{DEFAULT} деньги: {LIGHTRED}$%i{DEFAULT}"
+		"ua"	"Адміністратор видав {LIGHTRED}%s{DEFAULT} гроші: {LIGHTRED}$%i{DEFAULT}"
+		"en"	"Admin gave {LIGHTRED}%s{DEFAULT} money: {LIGHTRED}$%i{DEFAULT}"
+	}
+	"AdminTakeMoneyMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} отнял у {LIGHTRED}%s{DEFAULT} деньги: {LIGHTRED}$%i{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} відняв у {LIGHTRED}%s{DEFAULT} гроші: {LIGHTRED}$%i{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} took {LIGHTRED}$%i{DEFAULT} from {LIGHTRED}%s{DEFAULT}"
+	}
+	"TakeMoneyMessage"
+	{
+		"ru"	"Администратор отнял у {LIGHTRED}%s{DEFAULT} деньги: {LIGHTRED}$%i{DEFAULT}"
+		"ua"	"Адміністратор відняв у {LIGHTRED}%s{DEFAULT} гроші: {LIGHTRED}$%i{DEFAULT}"
+		"en"	"Admin took {LIGHTRED}$%i{DEFAULT} from {LIGHTRED}%s{DEFAULT}"
+	}
+	"AdminGiveWeaponMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} выдал {LIGHTRED}%s{DEFAULT} оружие: {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} видав {LIGHTRED}%s{DEFAULT} зброю: {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} gave {LIGHTRED}%s{DEFAULT} weapon: {LIGHTRED}%s{DEFAULT}"
+	}
+	"GiveWeaponMessage"
+	{
+		"ru"	"Администратор выдал {LIGHTRED}%s{DEFAULT} оружие: {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор видав {LIGHTRED}%s{DEFAULT} зброю: {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin gave {LIGHTRED}%s{DEFAULT} weapon: {LIGHTRED}%s{DEFAULT}"
+	}
+	"AdminResetScoreMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} сбросил счёт игрока {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} скинув рахунок гравця {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} reset score of {LIGHTRED}%s{DEFAULT}"
+	}
+	"ResetScoreMessage"
+	{
+		"ru"	"Администратор сбросил счёт игрока {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор скинув рахунок гравця {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin reset score of {LIGHTRED}%s{DEFAULT}"
+	}
+	"ESP_Enabled_Root"
+	{
+		"ru"	" Администратор {LIGHTRED}%s{DEFAULT} включил Admin ESP"
+		"ua"	" Адміністратор {LIGHTRED}%s{DEFAULT} увімкнув Admin ESP"
+		"en"	" Admin {LIGHTRED}%s{DEFAULT} enabled Admin ESP"
+	}
+	"ESP_Disabled_Root"
+	{
+		"ru"	" Администратор {LIGHTRED}%s{DEFAULT} выключил Admin ESP"
+		"ua"	" Адміністратор {LIGHTRED}%s{DEFAULT} вимкнув Admin ESP"
+		"en"	" Admin {LIGHTRED}%s{DEFAULT} disabled Admin ESP"
+	}
+```
 
 **3. Добавь в sorting:**
 
@@ -118,7 +301,190 @@ game/csgo/addons/counterstrikesharp/plugins/AdminESP/AdminESP.dll
 
 **2. Add translations:**
 
-Open `csgo/addons/translations/admin_system.phrases.txt` and insert the contents of `admin_system.phrases.txt` from the archive before the last closing `}`.
+Open `csgo/addons/translations/admin_system.phrases.txt` and insert the contents of `admin_system.phrases.txt` from the archive before the last closing `}`:
+
+```
+	"Category_AdminCommands"
+	{
+		"ru"	"Управление командами"
+		"ua"	"Управління командами"
+		"en"	"Admin Commands"
+	}
+	"Item_RespawnPlayer"
+	{
+		"ru"	"Возродить игрока"
+		"ua"	"Відродити гравця"
+		"en"	"Respawn Player"
+	}
+	"Item_TeleportPlayer"
+	{
+		"ru"	"Телепортировать игрока"
+		"ua"	"Телепортувати гравця"
+		"en"	"Teleport Player"
+	}
+	"Item_GiveMoney"
+	{
+		"ru"	"Выдать деньги"
+		"ua"	"Видати гроші"
+		"en"	"Give Money"
+	}
+	"Item_TakeMoney"
+	{
+		"ru"	"Отнять деньги"
+		"ua"	"Відняти гроші"
+		"en"	"Take Money"
+	}
+	"Item_InfAmmo"
+	{
+		"ru"	"Бесконечные патроны"
+		"ua"	"Безкінечні патрони"
+		"en"	"Infinite Ammo"
+	}
+	"Item_GiveWeapon"
+	{
+		"ru"	"Выдать оружие"
+		"ua"	"Видати зброю"
+		"en"	"Give Weapon"
+	}
+	"Item_ResetScore"
+	{
+		"ru"	"Сбросить счёт"
+		"ua"	"Скинути рахунок"
+		"en"	"Reset Score"
+	}
+	"Status_On"
+	{
+		"ru"	"ВКЛ"
+		"ua"	"УВІМК"
+		"en"	"ON"
+	}
+	"Status_Off"
+	{
+		"ru"	"ВЫКЛ"
+		"ua"	"ВИМК"
+		"en"	"OFF"
+	}
+	"InfAmmo_Enabled"
+	{
+		"ru"	" {GREEN}[AS] {WHITE}Бесконечные патроны {GREEN}ON"
+		"ua"	" {GREEN}[AS] {WHITE}Безкінечні патрони {GREEN}ON"
+		"en"	" {GREEN}[AS] {WHITE}Infinite ammo {GREEN}ON"
+	}
+	"InfAmmo_Disabled"
+	{
+		"ru"	" {GREEN}[AS] {WHITE}Бесконечные патроны {RED}OFF"
+		"ua"	" {GREEN}[AS] {WHITE}Безкінечні патрони {RED}OFF"
+		"en"	" {GREEN}[AS] {WHITE}Infinite ammo {RED}OFF"
+	}
+	"Teleport_SelectTarget"
+	{
+		"ru"	"Кого телепортировать?"
+		"ua"	"Кого телепортувати?"
+		"en"	"Who to teleport?"
+	}
+	"Teleport_SelectDest"
+	{
+		"ru"	"К кому телепортировать"
+		"ua"	"До кого телепортувати"
+		"en"	"Teleport to"
+	}
+	"Money_SelectAmount"
+	{
+		"ru"	"Выберите сумму"
+		"ua"	"Оберіть суму"
+		"en"	"Select Amount"
+	}
+	"Weapon_SelectWeapon"
+	{
+		"ru"	"Выберите оружие"
+		"ua"	"Оберіть зброю"
+		"en"	"Select Weapon"
+	}
+	"AdminRespawnMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} возродил игрока {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} відродив гравця {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} respawned player {LIGHTRED}%s{DEFAULT}"
+	}
+	"RespawnMessage"
+	{
+		"ru"	"Администратор возродил игрока {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор відродив гравця {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin respawned player {LIGHTRED}%s{DEFAULT}"
+	}
+	"AdminTeleportMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} телепортировал {LIGHTRED}%s{DEFAULT} к {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} телепортував {LIGHTRED}%s{DEFAULT} до {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} teleported {LIGHTRED}%s{DEFAULT} to {LIGHTRED}%s{DEFAULT}"
+	}
+	"TeleportMessage"
+	{
+		"ru"	"Администратор телепортировал {LIGHTRED}%s{DEFAULT} к {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор телепортував {LIGHTRED}%s{DEFAULT} до {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin teleported {LIGHTRED}%s{DEFAULT} to {LIGHTRED}%s{DEFAULT}"
+	}
+	"AdminGiveMoneyMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} выдал {LIGHTRED}%s{DEFAULT} деньги: {LIGHTRED}$%i{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} видав {LIGHTRED}%s{DEFAULT} гроші: {LIGHTRED}$%i{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} gave {LIGHTRED}%s{DEFAULT} money: {LIGHTRED}$%i{DEFAULT}"
+	}
+	"GiveMoneyMessage"
+	{
+		"ru"	"Администратор выдал {LIGHTRED}%s{DEFAULT} деньги: {LIGHTRED}$%i{DEFAULT}"
+		"ua"	"Адміністратор видав {LIGHTRED}%s{DEFAULT} гроші: {LIGHTRED}$%i{DEFAULT}"
+		"en"	"Admin gave {LIGHTRED}%s{DEFAULT} money: {LIGHTRED}$%i{DEFAULT}"
+	}
+	"AdminTakeMoneyMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} отнял у {LIGHTRED}%s{DEFAULT} деньги: {LIGHTRED}$%i{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} відняв у {LIGHTRED}%s{DEFAULT} гроші: {LIGHTRED}$%i{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} took {LIGHTRED}$%i{DEFAULT} from {LIGHTRED}%s{DEFAULT}"
+	}
+	"TakeMoneyMessage"
+	{
+		"ru"	"Администратор отнял у {LIGHTRED}%s{DEFAULT} деньги: {LIGHTRED}$%i{DEFAULT}"
+		"ua"	"Адміністратор відняв у {LIGHTRED}%s{DEFAULT} гроші: {LIGHTRED}$%i{DEFAULT}"
+		"en"	"Admin took {LIGHTRED}$%i{DEFAULT} from {LIGHTRED}%s{DEFAULT}"
+	}
+	"AdminGiveWeaponMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} выдал {LIGHTRED}%s{DEFAULT} оружие: {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} видав {LIGHTRED}%s{DEFAULT} зброю: {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} gave {LIGHTRED}%s{DEFAULT} weapon: {LIGHTRED}%s{DEFAULT}"
+	}
+	"GiveWeaponMessage"
+	{
+		"ru"	"Администратор выдал {LIGHTRED}%s{DEFAULT} оружие: {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор видав {LIGHTRED}%s{DEFAULT} зброю: {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin gave {LIGHTRED}%s{DEFAULT} weapon: {LIGHTRED}%s{DEFAULT}"
+	}
+	"AdminResetScoreMessage"
+	{
+		"ru"	"Администратор {LIGHTRED}%s{DEFAULT} сбросил счёт игрока {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор {LIGHTRED}%s{DEFAULT} скинув рахунок гравця {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin {LIGHTRED}%s{DEFAULT} reset score of {LIGHTRED}%s{DEFAULT}"
+	}
+	"ResetScoreMessage"
+	{
+		"ru"	"Администратор сбросил счёт игрока {LIGHTRED}%s{DEFAULT}"
+		"ua"	"Адміністратор скинув рахунок гравця {LIGHTRED}%s{DEFAULT}"
+		"en"	"Admin reset score of {LIGHTRED}%s{DEFAULT}"
+	}
+	"ESP_Enabled_Root"
+	{
+		"ru"	" Администратор {LIGHTRED}%s{DEFAULT} включил Admin ESP"
+		"ua"	" Адміністратор {LIGHTRED}%s{DEFAULT} увімкнув Admin ESP"
+		"en"	" Admin {LIGHTRED}%s{DEFAULT} enabled Admin ESP"
+	}
+	"ESP_Disabled_Root"
+	{
+		"ru"	" Администратор {LIGHTRED}%s{DEFAULT} выключил Admin ESP"
+		"ua"	" Адміністратор {LIGHTRED}%s{DEFAULT} вимкнув Admin ESP"
+		"en"	" Admin {LIGHTRED}%s{DEFAULT} disabled Admin ESP"
+	}
+```
 
 **3. Add to sorting:**
 
