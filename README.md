@@ -26,15 +26,16 @@
 
 Модуль состоит из двух частей:
 
-**`as_admcmd` — Metamod плагин.** Основная часть: меню, телепорт, деньги, оружие, сброс счёта, интеграция с AdminSystem.
+`as_admcmd` — Metamod плагин.** Основная часть: меню, телепорт, деньги, оружие, сброс счёта, интеграция с AdminSystem.
 
-**`AdminESP` — CounterStrikeSharp плагин.** Отдельный плагин только для ESP. Реализовать настоящий ВХ (glow через стены) так, чтобы видел только один конкретный админ, в Metamod невозможно. CounterStrikeSharp даёт доступ к `CheckTransmit` — механизму который контролирует что именно отправляется каждому клиенту. Именно через него подсветка показывается только тому у кого включён ESP, а остальные игроки её не видят.
+`AdminESP` — CounterStrikeSharp плагин.** Отдельный плагин только для ESP. Реализовать настоящий ВХ (glow через стены) так, чтобы видел только один конкретный админ, в Metamod невозможно. CounterStrikeSharp даёт доступ к `CheckTransmit` — механизму который контролирует что именно отправляется каждому клиенту. Именно через него подсветка показывается только тому у кого включён ESP, а остальные игроки её не видят.
 
 ### Требования
 
 - [Metamod:Source](https://www.sourcemm.net/downloads.php?branch=dev)
-- [AdminSystem](https://github.com/Pisex/cs2-admin_system/releases/latest) — Utils, Menus, Players, Admin
-- [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp/releases) — только для ESP
+- [AdminSystem](https://github.com/Pisex/cs2-admin_system/releases/latest)
+- [Utils](https://github.com/Pisex/cs2-menus/releases/tag/1.8.6.2)
+- [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp/releases)
 
 ### Установка
 
@@ -61,10 +62,9 @@ game/csgo/addons/counterstrikesharp/plugins/AdminESP/AdminESP.dll
 	}
 ```
 
-**4. Выдай права:**
+**4. Права доступа:**
 
-В базе данных AdminSystem выдай флаг `@admin/admcmd` нужным администраторам.  
-Флаг `@admin/root` включает доступ автоматически.
+Флаг `@admin/admcmd` нужным администраторам.
 
 ### Уведомления в чате
 
@@ -102,8 +102,9 @@ Adds a new category **"Admin Commands"** to the `!admin` menu.
 ### Requirements
 
 - [Metamod:Source](https://www.sourcemm.net/downloads.php?branch=dev)
-- [AdminSystem](https://github.com/Pisex/cs2-admin_system/releases/latest) — Utils, Menus, Players, Admin
-- [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp/releases) — ESP only
+- [AdminSystem](https://github.com/Pisex/cs2-admin_system/releases/latest)
+- [Utils](https://github.com/Pisex/cs2-menus/releases/tag/1.8.6.2)
+- [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp/releases)
 
 ### Installation
 
@@ -130,10 +131,9 @@ Open `game/csgo/configs/admin_system/sorting.ini` and insert the contents of `so
 	}
 ```
 
-**4. Grant permissions:**
+**4. Access rights:**
 
-In the AdminSystem database grant the `@admin/admcmd` flag to the admins you want.  
-The `@admin/root` flag includes access automatically.
+Flag `@admin/admcmd` for required administrators.
 
 ### Chat notifications
 
@@ -141,6 +141,6 @@ The `@admin/root` flag includes access automatically.
 - **When ESP is enabled** — all admins with `@admin/root` see a notification in chat
 - **Respawn, teleport, money, weapon, score** — message goes to general chat
 
-### Author
+#Author:
 
-sq1z
+sq1z :)
