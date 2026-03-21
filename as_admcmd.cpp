@@ -18,8 +18,10 @@ IAdminApi*   g_pAdminApi   = nullptr;
 
 #define MAX_PLAYERS  64
 
-bool g_bESP[65]    = {};
-bool g_bInfAmmo[65]= {};
+bool g_bESP[65]        = {};
+bool g_bInfAmmo[65]    = {};
+bool g_bPlayerESP[65]  = {};
+bool g_bPlayerAmmo[65] = {};
 
 int g_iTeleportVictim[65] = {};
 
@@ -66,6 +68,8 @@ static void ToggleESP(int iSlot)
 
 void ShowMainMenu(int iSlot);
 void ShowRespawnMenu(int iSlot);
+void ShowGiveESPMenu(int iSlot);
+void ShowGiveAmmoMenu(int iSlot);
 void ShowTeleportStep1(int iSlot);
 void ShowTeleportStep2(int iSlot, int iVictim);
 void ShowGiveMoneyMenu(int iSlot);
@@ -98,6 +102,8 @@ void ShowMainMenu(int iSlot)
 
 	g_pMenus->AddItemMenu(hMenu, "giveweapon", g_pAdminApi->GetTranslation("Item_GiveWeapon"));
 	g_pMenus->AddItemMenu(hMenu, "resetscore", g_pAdminApi->GetTranslation("Item_ResetScore"));
+	g_pMenus->AddItemMenu(hMenu, "giveesp",    g_pAdminApi->GetTranslation("Item_GiveESP"));
+	g_pMenus->AddItemMenu(hMenu, "giveammo",   g_pAdminApi->GetTranslation("Item_GiveAmmo"));
 
 	g_pMenus->SetBackMenu(hMenu, true);
 	g_pMenus->SetExitMenu(hMenu, true);
@@ -145,6 +151,8 @@ void ShowMainMenu(int iSlot)
 		if (!strcmp(szBack, "takemoney"))  { ShowTakeMoneyMenu(iSlot); return; }
 		if (!strcmp(szBack, "giveweapon")) { ShowGiveWeaponMenu(iSlot); return; }
 		if (!strcmp(szBack, "resetscore")) { ShowResetScoreMenu(iSlot); return; }
+		if (!strcmp(szBack, "giveesp"))    { ShowGiveESPMenu(iSlot);   return; }
+		if (!strcmp(szBack, "giveammo"))   { ShowGiveAmmoMenu(iSlot);  return; }
 	});
 	g_pMenus->DisplayPlayerMenu(hMenu, iSlot);
 }
@@ -511,6 +519,102 @@ void ShowResetScoreMenu(int iSlot)
 	g_pMenus->DisplayPlayerMenu(hMenu, iSlot);
 }
 
+
+void ShowGiveESPMenu(int iSlot)
+{
+	Menu hMenu;
+	g_pMenus->SetTitleMenu(hMenu, g_pAdminApi->GetTranslation("Item_GiveESP"));
+	bool bFound = false;
+	for (int i = 0; i < MAX_PLAYERS; i++)
+	{
+		if (!IsPlayerValid(i) || i == iSlot) continue;
+		char szName[128];
+		g_SMAPI->Format(szName, sizeof(szName), "%s [%s]",
+			g_pPlayersApi->GetPlayerName(i),
+			g_bPlayerESP[i] ? g_pAdminApi->GetTranslation("Status_On") : g_pAdminApi->GetTranslation("Status_Off"));
+		g_pMenus->AddItemMenu(hMenu, std::to_string(i).c_str(), szName);
+		bFound = true;
+	}
+	if (!bFound)
+		g_pMenus->AddItemMenu(hMenu, "", g_pAdminApi->GetTranslation("NoPlayers"), ITEM_DISABLED);
+	g_pMenus->SetBackMenu(hMenu, true);
+	g_pMenus->SetExitMenu(hMenu, true);
+	g_pMenus->SetCallback(hMenu, [](const char* szBack, const char* szFront, int iItem, int iSlot)
+	{
+		if (iItem == 7) { ShowMainMenu(iSlot); return; }
+		if (iItem > 7) return;
+		int iTarget = std::atoi(szBack);
+		if (!IsPlayerValid(iTarget)) return;
+		g_bPlayerESP[iTarget] = !g_bPlayerESP[iTarget];
+		char szCmd[64];
+		g_SMAPI->Format(szCmd, sizeof(szCmd), "css_adminwh_toggle %i", iTarget);
+		engine->ServerCommand(szCmd);
+		if (g_bPlayerESP[iTarget])
+		{
+			if (g_pAdminApi->GetMessageType() == 2)
+				g_pUtils->PrintToChatAll(g_pAdminApi->GetTranslation("AdminGiveESPMessage"), AdminName(iSlot), g_pPlayersApi->GetPlayerName(iTarget));
+			else if (g_pAdminApi->GetMessageType() == 1)
+				g_pUtils->PrintToChatAll(g_pAdminApi->GetTranslation("GiveESPMessage"), g_pPlayersApi->GetPlayerName(iTarget));
+		}
+		else
+		{
+			if (g_pAdminApi->GetMessageType() == 2)
+				g_pUtils->PrintToChatAll(g_pAdminApi->GetTranslation("AdminTakeESPMessage"), AdminName(iSlot), g_pPlayersApi->GetPlayerName(iTarget));
+			else if (g_pAdminApi->GetMessageType() == 1)
+				g_pUtils->PrintToChatAll(g_pAdminApi->GetTranslation("TakeESPMessage"), g_pPlayersApi->GetPlayerName(iTarget));
+		}
+		g_pAdminApi->SendAction(iSlot, "give_esp", std::to_string(iTarget).c_str());
+		ShowGiveESPMenu(iSlot);
+	});
+	g_pMenus->DisplayPlayerMenu(hMenu, iSlot);
+}
+
+void ShowGiveAmmoMenu(int iSlot)
+{
+	Menu hMenu;
+	g_pMenus->SetTitleMenu(hMenu, g_pAdminApi->GetTranslation("Item_GiveAmmo"));
+	bool bFound = false;
+	for (int i = 0; i < MAX_PLAYERS; i++)
+	{
+		if (!IsPlayerValid(i) || i == iSlot) continue;
+		char szName[128];
+		g_SMAPI->Format(szName, sizeof(szName), "%s [%s]",
+			g_pPlayersApi->GetPlayerName(i),
+			g_bPlayerAmmo[i] ? g_pAdminApi->GetTranslation("Status_On") : g_pAdminApi->GetTranslation("Status_Off"));
+		g_pMenus->AddItemMenu(hMenu, std::to_string(i).c_str(), szName);
+		bFound = true;
+	}
+	if (!bFound)
+		g_pMenus->AddItemMenu(hMenu, "", g_pAdminApi->GetTranslation("NoPlayers"), ITEM_DISABLED);
+	g_pMenus->SetBackMenu(hMenu, true);
+	g_pMenus->SetExitMenu(hMenu, true);
+	g_pMenus->SetCallback(hMenu, [](const char* szBack, const char* szFront, int iItem, int iSlot)
+	{
+		if (iItem == 7) { ShowMainMenu(iSlot); return; }
+		if (iItem > 7) return;
+		int iTarget = std::atoi(szBack);
+		if (!IsPlayerValid(iTarget)) return;
+		g_bPlayerAmmo[iTarget] = !g_bPlayerAmmo[iTarget];
+		if (g_bPlayerAmmo[iTarget])
+		{
+			if (g_pAdminApi->GetMessageType() == 2)
+				g_pUtils->PrintToChatAll(g_pAdminApi->GetTranslation("AdminGiveAmmoMessage"), AdminName(iSlot), g_pPlayersApi->GetPlayerName(iTarget));
+			else if (g_pAdminApi->GetMessageType() == 1)
+				g_pUtils->PrintToChatAll(g_pAdminApi->GetTranslation("GiveAmmoMessage"), g_pPlayersApi->GetPlayerName(iTarget));
+		}
+		else
+		{
+			if (g_pAdminApi->GetMessageType() == 2)
+				g_pUtils->PrintToChatAll(g_pAdminApi->GetTranslation("AdminTakeAmmoMessage"), AdminName(iSlot), g_pPlayersApi->GetPlayerName(iTarget));
+			else if (g_pAdminApi->GetMessageType() == 1)
+				g_pUtils->PrintToChatAll(g_pAdminApi->GetTranslation("TakeAmmoMessage"), g_pPlayersApi->GetPlayerName(iTarget));
+		}
+		g_pAdminApi->SendAction(iSlot, "give_ammo", std::to_string(iTarget).c_str());
+		ShowGiveAmmoMenu(iSlot);
+	});
+	g_pMenus->DisplayPlayerMenu(hMenu, iSlot);
+}
+
 bool AdminCMD::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, bool late)
 {
 	PLUGIN_SAVEVARS();
@@ -571,14 +675,16 @@ void AdminCMD::AllPluginsLoaded()
 	{
 		int slot = pEvent->GetInt("userid");
 		if (slot < 0 || slot >= MAX_PLAYERS) return;
-		g_bESP[slot]    = false;
-		g_bInfAmmo[slot]= false;
+		g_bESP[slot]        = false;
+		g_bInfAmmo[slot]    = false;
+		g_bPlayerESP[slot]  = false;
+		g_bPlayerAmmo[slot] = false;
 	});
 
 	g_pUtils->HookEvent(g_PLID, "weapon_fire", [](const char* szName, IGameEvent* pEvent, bool bBroadcast)
 	{
 		int slot = pEvent->GetInt("userid");
-		if (slot < 0 || slot >= MAX_PLAYERS || !g_bInfAmmo[slot]) return;
+		if (slot < 0 || slot >= MAX_PLAYERS || (!g_bInfAmmo[slot] && !g_bPlayerAmmo[slot])) return;
 		CCSPlayerController* p = CCSPlayerController::FromSlot(slot);
 		if (!p) return;
 		CCSPlayerPawn* pawn = p->GetPlayerPawn();
@@ -590,8 +696,10 @@ void AdminCMD::AllPluginsLoaded()
 
 	g_pPlayersApi->HookOnClientAuthorized(g_PLID, [](int iSlot, uint64 iSteamID64)
 	{
-		g_bESP[iSlot]    = false;
-		g_bInfAmmo[iSlot]= false;
+		g_bESP[iSlot]        = false;
+		g_bInfAmmo[iSlot]    = false;
+		g_bPlayerESP[iSlot]  = false;
+		g_bPlayerAmmo[iSlot] = false;
 	});
 
 	g_pUtils->StartupServer(g_PLID, StartupServer);
@@ -620,4 +728,4 @@ const char* AdminCMD::GetLogTag()      { return "AdminCMD"; }
 const char* AdminCMD::GetAuthor()      { return "sq1z"; }
 const char* AdminCMD::GetDescription() { return "Admin Commands module for AdminSystem"; }
 const char* AdminCMD::GetName()        { return "[AS] Admin Commands"; }
-const char* AdminCMD::GetURL()         { return "https://github.com/sq1z"; }
+const char* AdminCMD::GetURL()         { return "https://github.com/sq1zzzz"; }
