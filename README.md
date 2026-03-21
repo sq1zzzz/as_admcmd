@@ -21,14 +21,16 @@
 | Бесконечные патроны | Бесконечный боезапас для тебя |
 | Выдать оружие | Выдаёт любое оружие из арсенала CS2 |
 | Сбросить счёт | Обнуляет убийства, смерти, ассисты и очки |
+| Выдать ESP игроку | Выдаёт или забирает ESP у любого игрока |
+| Выдать патроны игроку | Выдаёт или забирает бесконечные патроны у любого игрока |
 
 ### Почему два плагина?
 
 Модуль состоит из двух частей:
 
-`as_admcmd` - Metamod плагин.** Основная часть: меню, телепорт, деньги, оружие, сброс счёта, интеграция с AdminSystem.
+**`as_admcmd` - Metamod плагин.** Основная часть: меню, телепорт, деньги, оружие, сброс счёта, интеграция с AdminSystem.
 
-`AdminESP` - CounterStrikeSharp плагин.** Отдельный плагин только для ESP. Реализовать настоящий ВХ (glow через стены) так, чтобы видел только один конкретный админ, в Metamod невозможно. CounterStrikeSharp даёт доступ к `CheckTransmit` - механизму который контролирует что именно отправляется каждому клиенту. Именно через него подсветка показывается только тому у кого включён ESP, а остальные игроки её не видят.
+**`AdminESP` - CounterStrikeSharp плагин. Отдельный плагин только для ESP. Решил реализовать через CounterStrikeSharp так как он даёт доступ к `CheckTransmit` - механизму который контролирует что именно отправляется каждому клиенту. Именно через него подсветка показывается только тому у кого включён ESP, а остальные игроки её не видят.
 
 ### Требования
 
@@ -68,9 +70,10 @@ game/csgo/addons/counterstrikesharp/plugins/AdminESP/AdminESP.dll
 
 ### Уведомления в чате
 
-- **ESP, бесконечные патроны** - сообщение видит только сам админ
+- **ESP, бесконечные патроны для себя** - сообщение видит только сам админ
 - **Когда ESP включается** - все с флагом `@admin/root` видят уведомление кто его включил
 - **Возрождение, телепорт, деньги, оружие, счёт** - сообщение в общий чат
+- **Выдать/забрать ESP или патроны игроку** - сообщение в общий чат
 
 ---
 
@@ -92,12 +95,14 @@ Adds a new category **"Admin Commands"** to the `!admin` menu.
 | Infinite Ammo | Unlimited ammo for yourself |
 | Give Weapon | Give any weapon from the CS2 arsenal |
 | Reset Score | Reset a player's kills, deaths, assists and score |
+| Give ESP to Player | Give or take ESP from any player |
+| Give Ammo to Player | Give or take infinite ammo from any player |
 
 ### Why two plugins?
 
 **`as_admcmd` - Metamod plugin.** The main part: menu, teleport, money, weapons, score reset, AdminSystem integration.
 
-**`AdminESP` - CounterStrikeSharp plugin.** A separate plugin for ESP only. It is not possible to implement a proper wallhack (player glow visible through walls) in Metamod in a way that only one specific admin sees it. CounterStrikeSharp provides access to `CheckTransmit` - a mechanism that controls exactly what is sent to each client. This is what makes the glow visible only to the admin with ESP enabled, while everyone else sees nothing.
+**`AdminESP` - CounterStrikeSharp plugin. A separate plugin for ESP only. Decided to implement it through CounterStrikeSharp since it provides access to `CheckTransmit` - a mechanism that controls exactly what is sent to each client. This is what makes the glow visible only to the admin with ESP enabled, while everyone else sees nothing.
 
 ### Requirements
 
@@ -137,9 +142,10 @@ Flag `@admin/admcmd` for required administrators.
 
 ### Chat notifications
 
-- **ESP, infinite ammo** - message visible only to the admin who toggled it
+- **ESP, infinite ammo for yourself** - message visible only to the admin who toggled it
 - **When ESP is enabled** - all admins with `@admin/root` see a notification in chat
 - **Respawn, teleport, money, weapon, score** - message goes to general chat
+- **Give/take ESP or ammo to player** - message goes to general chat
 
 #Author:
 
